@@ -1,0 +1,78 @@
+
+===============================================        N O T E        ===============================================
+
+The output file name is : cutin{dx}_{ve}_{lat}.yaml
+
+
+dx is the initial longitudinal distance before cut-in occurs
+We have to take in account the length of the ego vehicle, thus we have to increment the distance that we want by 4.913 (Considering we are using the default 2015 Lexus RX450h vehicle model prefab)
+So;
+dx = 4.913 : 0m from the ego car
+dx = 9.913 : 5m from the ego car
+dx = 14.913 : 10m from the ego car.. and so on
+
+distance(m) : dx value(m)
+00 = 4.913
+05 = 9.913
+10 = 14.913
+15 = 19.913  
+20 = 24.913  
+25 = 29.913  
+30 = 34.913  
+35 = 39.913  
+40 = 44.913  
+45 = 49.913  
+50 = 54.913  
+55 = 59.913  
+
+=====================================================================================================================
+ve is the maximum velocity of ego car, vo is for npc car
+the unit for the variable is m/s
+[kmh] : [ms]
+10 = 2.778
+20 = 5.556
+30 = 8.333
+40 = 11.111
+50 = 13.889
+60 = 16.667
+
+=====================================================================================================================
+lat is lateral velocity of npc car
+
+The namings of lat velocity is 1 = 0.1 ms, 10 = 1.0 ms
+the unit for the variable is m/s
+[kmh] 	: [ms] 	: filename
+0.4 	= 0.1	= 1
+0.7 	= 0.2  	= 2
+1.1 	= 0.3 	= 3
+1.4 	= 0.4  	= 4
+1.8 	= 0.5  	= 5
+2.2 	= 0.6  	= 6
+2.5 	= 0.7  	= 7
+2.9 	= 0.8  	= 8
+3.2 	= 0.9  	= 9
+3.6 	= 1.0  	= 10
+3.9 	= 1.1  	= 11
+4.3 	= 1.2  	= 12
+4.7 	= 1.3  	= 13
+5.0 	= 1.4  	= 14
+5.4 	= 1.5  	= 15
+5.8 	= 1.6  	= 16
+6.1 	= 1.7  	= 17
+6.5 	= 1.8  	= 18
+6.8 	= 1.9  	= 19
+7.2 	= 2.0  	= 20
+7.6 	= 2.1  	= 21
+7.9 	= 2.2  	= 22
+8.3 	= 2.3  	= 23
+8.6 	= 2.4  	= 24
+9.0 	= 2.5  	= 25
+9.4 	= 2.6  	= 26
+9.7 	= 2.7  	= 27
+10.1 	= 2.8  	= 28
+10.4 	= 2.9  	= 29
+10.8 	= 3.0	= 30
+
+
+=====================================================================================================================
+

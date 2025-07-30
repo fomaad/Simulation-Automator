@@ -1,0 +1,64 @@
+
+===============================================        N O T E        ===============================================
+
+The output file name is : deceleration{dx}_{ve}_{deo}.yaml
+
+dx is the total distance from spawn point
+We have to take in account the length of the ego vehicle, thus we have to increment the distance that we want by 4.913 (Considering we are using the default 2015 Lexus RX450h vehicle model prefab)
+So;
+dx = 4.913 : 0m from the ego car
+dx = 9.913 : 5m from the ego car
+dx = 14.913 : 10m from the ego car.. and so on
+
+distance(m) : dx value(m)
+00 = 4.913
+05 = 9.913
+10 = 14.913
+15 = 19.913  
+20 = 24.913  
+25 = 29.913  
+30 = 34.913  
+35 = 39.913  
+40 = 44.913  
+45 = 49.913  
+50 = 54.913  
+55 = 59.913  
+60 = 64.913
+
+=====================================================================================================================
+ve is the maximum velocity of ego car, vo is for npc car
+the unit for the variable is m/s
+kmh : ms
+10 = 2.778
+20 = 5.556
+30 = 8.333
+40 = 11.111
+50 = 13.889
+60 = 16.667
+
+=====================================================================================================================
+deo is the deceleration of npc car
+the unit for the variable is m/s
+kmh : ms
+03.60 = 1.000
+05.36 = 1.489
+07.12 = 1.979
+08.89 = 2.468
+10.65 = 2.958
+12.41 = 3.447
+14.17 = 3.937
+15.93 = 4.426
+17.70 = 4.916
+19.46 = 5.405
+21.22 = 5.894
+22.98 = 6.384
+24.74 = 6.873
+26.51 = 7.363
+28.27 = 7.852
+30.03 = 8.342
+31.79 = 8.831
+33.55 = 9.321
+35.32 = 9.810
+
+=====================================================================================================================
+
