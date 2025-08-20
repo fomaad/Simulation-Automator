@@ -20,6 +20,8 @@ ROS_VIDEO_DIR="$PROJECT/recordings/ROSImages"
 ROS_TEMP_VIDEO="$ROS_VIDEO_DIR/TempRec.mp4"
 ROS_FINAL_VIDEO="$ROS_VIDEO_DIR/${OUTNAME}.mp4"
 
+END_NAME="deceleration60-50-30" #config to be the last file name of your combination
+
 #to explicitly define winid
 : '
  AUTOWARE_WINID="90178038"
@@ -164,6 +166,10 @@ xdotool mousemove 1410 290
 xdotool click 1
 
 xdotool mousemove 3310 701
+
+    if [[ "$OUTNAME" == "$END_NAME" ]]; then
+    	exit 0
+    fi
 
 	sleep 10
 done

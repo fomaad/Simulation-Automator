@@ -5,11 +5,11 @@ PROJECT_ROOT="/path/to/project"
 AUTOWARE_DIR="/path/to/autoware" #eg. /home/user/autoware
 MAP_ROOT="/path/to/autoware_map" #eg. /home/user/autoware_map
 
-PROJECT="$PROJECT_ROOT/cutin"
+PROJECT="$PROJECT_ROOT/cutout"
 
 # paths
-PYTHON_SCRIPT= "$PROJECT/scripts/simulate_next_combination_cutin.py"
-TEMP_SCRIPT= "$PROJECT/temp/cutinTemp.script"
+PYTHON_SCRIPT= "$PROJECT/scripts/simulate_next_combination_cutout.py"
+TEMP_SCRIPT= "$PROJECT/temp/cutoutTemp.script"
 OUTPUT_DIR= "$PROJECT/output"
 MAP_PATH= "$MAP_ROOT/nishishinjuku_autoware_map"
 RECORDING_DIR= "$PROJECT/recordings/ScreenRecordings"
@@ -19,6 +19,8 @@ ROS_SCRIPT="$PROJECT/scripts/ROSImageRecorder.py"
 ROS_VIDEO_DIR="$PROJECT/recordings/ROSImages"
 ROS_TEMP_VIDEO="$ROS_VIDEO_DIR/TempRec.mp4"
 ROS_FINAL_VIDEO="$ROS_VIDEO_DIR/${OUTNAME}.mp4"
+
+END_NAME="cutout60-50-30" #config to be the last file name of your combination
 
 #to explicitly define winid
 : '
@@ -31,7 +33,7 @@ while true; do
     python3 "$PYTHON_SCRIPT"
 
     DX_LINE=$(grep -oP 'dx = \K[0-9.]+' "$TEMP_SCRIPT")
-    VE_LINE=$(grep -oP 'npcspeed = \K[0-9.]+' "$TEMP_SCRIPT")
+    VE_LINE=$(grep -oP 've = \K[0-9.]+' "$TEMP_SCRIPT")
     LAT_LINE=$(grep -oP 'lat = \K[0-9.]+' "$TEMP_SCRIPT")
 
     if [[ -z "$DX_LINE" || -z "$VE_LINE" || -z "$LAT_LINE" ]]; then
@@ -43,7 +45,7 @@ while true; do
     VE_KMH=$(awk "BEGIN { printf \"%.0f\", $VE_LINE * 3.6 }")
     LAT_TAG=$(awk "BEGIN { printf \"%.0f\", $LAT_LINE * 10 }")
 
-    OUTNAME="cutin${DIST}-${VE_KMH}-${LAT_TAG}"
+    OUTNAME="cutout${DIST}-${VE_KMH}-${LAT_TAG}"
     echo "Output will be saved as: ${OUTNAME}.yaml and ${OUTNAME}.maude"
 
     echo "Launching Autoware..."
@@ -164,6 +166,10 @@ xdotool mousemove 1410 290
 xdotool click 1
 
 xdotool mousemove 3310 701
+
+    if [[ "$OUTNAME" == "$END_NAME" ]]; then
+    	exit 0
+    fi
 
 	sleep 10
 done
