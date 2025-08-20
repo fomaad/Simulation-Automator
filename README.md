@@ -39,7 +39,7 @@ The goal is to simulate various parameter changes under the same scenario setup 
 ```
 
 ```
-./cutout/  ← ⚠ Not usable yet (under development)
+./cutout/
 ├── (same structure as above)
 ```
 
